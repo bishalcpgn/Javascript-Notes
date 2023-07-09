@@ -1,0 +1,49 @@
+
+function practise() {
+  let demo = new Promise((resolve, reject) => {
+    let a = false;
+    if (a) resolve('Success')
+    else reject('Failed')
+  });
+  return demo 
+}
+doSomething()
+ .then((response) => console.log(response))
+ .catch((error) => console.log(error))
+ .finally(()=> console.log("The promise is either fulfilled or rejected."))
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+   Working Mechanism :
+ 
+1.  Inside practise function, a new Promise object is created using the Promise constructor.
+
+2.  The Promise constructor takes a callback function as an argument, which has two parameters: resolve and reject.
+    These parameters are functions used to handle the outcome of the Promise.
+
+3.  a is initialized with a boolean value of false.
+
+4.  An if-else statement is used to determine whether the Promise should be resolved or rejected. In this case,
+    since a is false, the reject function is called with the argument 'Failed'.
+
+5.  Promise object, named demo, is then returned from the doSomething function.
+
+6.  The doSomething function is invoked by calling doSomething(). This returns the demo Promise object.	
+
+7.  The 'then' method is chained to the demo Promise object. The 'then' method is used to handle the successful resolution
+    of a Promise. It takes a callback function as an argument, which receives the resolved value of the Promise.
+
+8.  The 'catch' method is chained to the demo Promise object. The 'catch' method is used to handle the rejection of a Promise.
+    It takes a callback function as an argument, which receives the rejected value of the Promise. In this case, the rejected
+     value is 'Failed', which is logged to the console.
+
+9.  The finally method is chained to the demo Promise object. The finally method is called regardless of whether the Promise is
+    resolved or rejected. It takes a callback function as an argument, which is executed after the Promise is settled. In this
+    case, it logs the message "The promise is either fulfilled or rejected." to the console.	
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  
+   Note : Promises is introduced in ES6 to make code more readable by preventing Callback Hell.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
